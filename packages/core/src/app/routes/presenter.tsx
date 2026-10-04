@@ -352,7 +352,7 @@ function useDeckModules(): Record<string, SlideModule> {
   return modules;
 }
 
-function DeckSwitcher({
+export function DeckSwitcher({
   slideId,
   slideTitle,
   onSwitchDeck,
@@ -659,11 +659,11 @@ function PresenterJumpControl({
   );
 }
 
-function SectionLabel({ children }: { children: React.ReactNode }) {
+export function SectionLabel({ children }: { children: React.ReactNode }) {
   return <span className="eyebrow">{children}</span>;
 }
 
-function PreviewStepHost({ revealed, children }: { revealed: number; children: ReactNode }) {
+export function PreviewStepHost({ revealed, children }: { revealed: number; children: ReactNode }) {
   const noopControllerRef = useRef<StepController | null>(null);
   return (
     <StepHost
@@ -677,7 +677,7 @@ function PreviewStepHost({ revealed, children }: { revealed: number; children: R
   );
 }
 
-function Clock() {
+export function Clock() {
   const [now, setNow] = useState(() => new Date());
   const t = useLocale();
   useEffect(() => {

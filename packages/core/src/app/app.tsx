@@ -4,6 +4,7 @@ import { Toaster } from './components/ui/sonner';
 import { TooltipProvider } from './components/ui/tooltip';
 import { useLocale } from './lib/use-locale';
 import { AssetsPage } from './routes/assets';
+import { Cockpit } from './routes/cockpit';
 import { Home } from './routes/home';
 import { HomeShell } from './routes/home-shell';
 import { Presenter } from './routes/presenter';
@@ -27,6 +28,7 @@ export function App() {
           )}
           <Route path="/s/:slideId" element={<Slide />} />
           <Route path="/s/:slideId/presenter" element={<Presenter />} />
+          <Route path="/s/:slideId/cockpit" element={<Cockpit />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </TooltipProvider>
