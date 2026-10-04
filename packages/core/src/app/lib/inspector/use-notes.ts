@@ -92,6 +92,9 @@ export function useNotes(slideId: string, index: number, initial: string | undef
   useEffect(() => {
     const prev = targetRef.current;
     const targetChanged = prev.slideId !== slideId || prev.index !== index;
+    // Our own save feeds `initialText` through the session cache; resetting
+    // here would wipe the saved status and anything typed while it was in flight.
+    if (!targetChanged && initialText === lastSavedRef.current) return;
     if (targetChanged && dirtyRef.current) {
       cancelTimer();
       const pending = valueRef.current;
