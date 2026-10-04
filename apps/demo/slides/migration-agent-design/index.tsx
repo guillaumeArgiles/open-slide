@@ -895,9 +895,8 @@ Two: we tested the design run for REAL yesterday, but not yet the full run with 
 And last: if a site blocks bots, we can't read it.`,
   `Leave at 8:00 · Conclusion, word for word
 
-To sum up. The kill switch PROTECTS our Segment bill, and it's live today.
-The migration agent now BUILDS a real theme, from one single place.
-I'd love your help: alert levels for Segment, and real shops for the migration.
+To sum up. The migration agent now BUILDS a real theme, from one single place.
+I'd love your help: send us real shops to test the migration.
 Any questions?`,
 ];
 
