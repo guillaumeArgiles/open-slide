@@ -124,7 +124,6 @@ export type Locale = {
     presentInWindow: string;
     presentFullscreen: string;
     presentPresenter: string;
-    presentCockpit: string;
     slidesTab: string;
     assetsTab: string;
     renameSlide: string;
@@ -165,30 +164,6 @@ export type Locale = {
     switchDeck: string;
     searchDecks: string;
     noDecksFound: string;
-  };
-
-  cockpit: {
-    eyebrow: string;
-    /** template: "Step {n}/{total}" */
-    step: string;
-    overview: string;
-    overviewShortcut: string;
-    timer: string;
-    target: string;
-    minutes: string;
-    remaining: string;
-    thisSlide: string;
-    slideBudget: string;
-    /** template: "auto · {min}" */
-    autoBudget: string;
-    clearSlideBudget: string;
-    onTrack: string;
-    /** template: "{time} ahead" */
-    ahead: string;
-    /** template: "{time} behind" */
-    behind: string;
-    nextNotes: string;
-    noNotes: string;
   };
 
   present: {

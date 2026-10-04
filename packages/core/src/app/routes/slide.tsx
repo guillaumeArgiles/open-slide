@@ -7,7 +7,6 @@ import {
   FileCode2,
   FileImage,
   FileText,
-  Gauge,
   Link2,
   Loader2,
   Maximize,
@@ -70,7 +69,6 @@ import { useIsMobile } from '@/lib/use-is-mobile';
 import { format, useLocale } from '@/lib/use-locale';
 import { useWheelPageNavigation } from '@/lib/use-wheel-page-navigation';
 import { cn } from '@/lib/utils';
-import { openCockpitTab } from '../components/cockpit/use-presenter-mirror';
 import { SlideCommandMenu } from '../components/command/slide-command-menu';
 import { PdfProgressToast, PptxProgressToast } from '../components/export-progress-toast';
 import { NotesDrawer } from '../components/notes-drawer';
@@ -802,15 +800,6 @@ export function Slide() {
                         <MonitorSpeaker />
                         {t.slide.presentPresenter}
                         <DropdownMenuShortcut>P</DropdownMenuShortcut>
-                      </DropdownMenuItem>
-                      <DropdownMenuItem
-                        onClick={() => {
-                          if (slideId) openCockpitTab(slideId);
-                          setPlayMode('window');
-                        }}
-                      >
-                        <Gauge />
-                        {t.slide.presentCockpit}
                       </DropdownMenuItem>
                     </DropdownMenuContent>
                   </DropdownMenu>
