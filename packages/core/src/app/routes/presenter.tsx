@@ -21,6 +21,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { hasModifier, isBackwardKey, isForwardKey, isTypingTarget } from '@/lib/keys';
+import { useLiveNote } from '@/lib/live-notes';
 import { useDocumentTitle } from '@/lib/use-document-title';
 import { format, useLocale } from '@/lib/use-locale';
 import { cn, pad2 } from '@/lib/utils';
@@ -262,7 +263,7 @@ export function Presenter() {
             </div>
           </div>
 
-          <SpeakerNotes note={note} />
+          <SpeakerNotes slideId={slideId} index={index} note={note} />
 
           <PresenterJumpControl total={total} current={index} onJump={goTo} />
         </aside>
@@ -550,8 +551,17 @@ const NOTES_FONT_SIZES = [11, 12, 13.5, 15, 17, 20, 24, 28];
 const NOTES_FONT_SIZE_DEFAULT_INDEX = 2;
 const NOTES_FONT_SIZE_STORAGE_KEY = 'open-slide:presenter-notes-font-size';
 
-function SpeakerNotes({ note }: { note: string | undefined }) {
+function SpeakerNotes({
+  slideId,
+  index,
+  note: moduleNote,
+}: {
+  slideId: string;
+  index: number;
+  note: string | undefined;
+}) {
   const t = useLocale();
+  const note = useLiveNote(slideId, index, moduleNote);
   const [sizeIndex, setSizeIndex] = useState(() => {
     if (typeof window === 'undefined') return NOTES_FONT_SIZE_DEFAULT_INDEX;
     const stored = Number(window.localStorage.getItem(NOTES_FONT_SIZE_STORAGE_KEY));

@@ -185,6 +185,11 @@ export function notesPlugin(opts: NotesPluginOptions): Plugin {
           if (changed) {
             recordWrite(file);
             await fs.writeFile(file, result.source, 'utf8');
+            server.ws.send({
+              type: 'custom',
+              event: 'open-slide:notes-changed',
+              data: { slideId, index: body.index, text: body.text },
+            });
           }
           return json(res, 200, { ok: true, changed });
         } catch (err) {
